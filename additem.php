@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 	<div class="input">
 		<label for="itemname">Item Name</label>
-		<input type="text" name="itemname" id="itemname" maxlength="30"<?php if(isset($itemname)){echo "value='".htmlspecialchars($itemname, ENT_QUOTES, "UTF-8")."'>";} else{echo "> $erritemname";} ?>
+		<input type="text" name="itemname" id="itemname" maxlength="30" <?php if(isset($itemname)){echo "value='".htmlspecialchars($itemname, ENT_QUOTES, "UTF-8")."'>";} else{echo "> $erritemname";} ?>
 	</div>
 
 	<div class="input">

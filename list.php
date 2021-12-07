@@ -27,14 +27,14 @@ if(isset($_SESSION['ID'])){
 	</tr>";
     <?php
 		foreach ($result as $row) {
-    ?>
-			<tr><td class='searchtable'>{$row['name']}</td><td class='searchtable'>{$row['email']}</td>
-            <?php
-            if($_SESSION['ID'] == $row['ID'] || $_SESSION['status'] == 1){
-                ?>
-				<td class='searchtable'><a href='update.php?q={$row['ID']}'>Update</a></td><td class='searchtable'><a href='changepass.php?q={$row['ID']}'>Change Password</a></td>
 
-            <?php
+			 echo "<tr><td class='searchtable'>{$row['name']}</td><td class='searchtable'>{$row['email']}</td>";
+
+            if($_SESSION['ID'] == $row['ID'] || $_SESSION['status'] == 1){
+
+				echo "<td class='searchtable'><a href='update.php?q={$row['ID']}'>Update</a></td><td class='searchtable'><a href='changepass.php?q={$row['ID']}'>Change Password</a></td>";
+
+
             }
 		}
         ?>

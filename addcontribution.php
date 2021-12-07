@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $pathparts = pathinfo($_FILES['image']['name']);
         $extension = strtolower($pathparts['extension']);
         $now = time();
-        $finalfile = $_SESSION['name'].$now.".".$extension;
+        $finalfile = str_replace(' ', '_', $_SESSION['name']).$now.".".$extension;
         $workingfile = "/var/www/html/uploads/".$finalfile;
         if(file_exists($workingfile)){
             $errexists = 1;
