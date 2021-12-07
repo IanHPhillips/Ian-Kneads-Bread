@@ -9,7 +9,7 @@
 
 $pagename = "Search";
 require_once "header.php";
-
+$term = "";
 
 if (isset($_GET['submit'])){
 	if(empty($_GET['term'])){
@@ -26,7 +26,7 @@ if (isset($_GET['submit'])){
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if(empty($result)){
-			echo "<p class='error'>No Results Found for $term.</p>";
+			echo "<p class='error'>No Results Found for ".htmlspecialchars($term, ENT_QUOTES, "UTF-8")."</p>";
 		}
 
 	}//search term present
@@ -35,7 +35,7 @@ if (isset($_GET['submit'])){
 	<p>Please enter the beginning of the member's name or email:</p>
 	<form name="empsearch" id="empsearch" method="get" action="<?php echo $currentfile;?>">
 		<label for="term">Search Term:</label>
-		<input type="text" id="term" name="term" placeholder="Enter First Name" <?php if(isset($_GET['term'])){echo "value='{$_GET['term']}'";}?>>
+		<input type="text" id="term" name="term" placeholder="Enter First Name" <?php if(isset($term)){echo "value='".htmlspecialchars($term, ENT_QUOTES, "UTF-8")."'";}?>>
 		<input type="submit" id="submit" name="submit" value="submit">
 	</form>
 
